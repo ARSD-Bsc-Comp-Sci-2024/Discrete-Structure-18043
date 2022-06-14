@@ -50,14 +50,14 @@ int main()
     int size;
     sets SETS;
     vector<char> A;
-    cout<<"Enter the number of elemets you want to enter the the set: ";cin>>size;
+    cout<<"Enter the number of elemets you want to enter the the set: ";cin>>size;//entering the size of set
     for (int x = 0; x < size; x++)
     {
-        cout<<"Enter the element "<<(x+1)<<": ";cin>>A[x];
+        cout<<"Enter the element "<<(x+1)<<": ";cin>>A[x];//entering the elements of the set as characters.
     }
     cout<<"enter the number you want to search: ";
     cin>>n;
-    if(SETS.ismember(n,A))
+    if(SETS.ismember(n,A))//checking for member.
     {
         cout<<n<<" is a member of the Set"<<endl;
     }
@@ -65,7 +65,7 @@ int main()
         cout<<n<<" is not a member of the set"<<endl;
     }
     vector<vector<char>> powersets;
-    powersets=SETS.powerset(A);
+    powersets=SETS.powerset(A);//returning the powerset as a 2d vector.
     cout<<"{";
     for (int i = 0; i < powersets.size(); i++)
     {
