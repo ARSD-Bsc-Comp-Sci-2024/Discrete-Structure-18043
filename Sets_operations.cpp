@@ -356,29 +356,46 @@ int main()
     cout<<"Enter your choice: ";cin>>choice;
     switch (choice)
     {
-    case 1:
+    case 1:{
         vector<int>unin=stop.UNION();
         cout<<"UNION: ";
         for (int i = 0; i < unin.size(); i++)
         {
             cout<<unin[i]<<",";
         }
-        
+        }
         break;
     
-    case 2:
+    case 2:{
         vector<int>itrsct=stop.INTERSECTION();
         cout<<"INTERSECTION: ";
         for (int i = 0; i < itrsct.size(); i++)
         {
             cout<<itrsct[i]<<",";
+        }}
+        break;
+    case 3:{
+        stop.COMPLEMENT();
         }
-        
+        break;
+    case 4:
+        {
+            stop.set_difference_and_symmetric_differnce();
+        }
+        break;
+    case 5:
+        {
+            stop.subset();
+        }
+        break;
+    case 6:
+        {
+            stop.CARTESIAN_PRODUCT();
+        }
         break;
     default:
         break;
     }
-    stop.CARTESIAN_PRODUCT();
     getch();
     return 0;
 }
