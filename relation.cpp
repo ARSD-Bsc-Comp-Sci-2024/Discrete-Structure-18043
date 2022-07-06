@@ -102,7 +102,7 @@ int main()
     for(int i=0;i<n;i++)
     {
         int x,y;
-        cout<<"Enter the elements numeric elements of the elements in the relation: ";
+        cout<<"Enter the pairs numeric elements of the elements in the relation: ";
         cin>>x>>y;
         r.enter_data(x-1,y-1);
     }

@@ -39,8 +39,9 @@ class insertion_sort
 					j--;
 					counting++;
 				}
-				cout<<"Comparision(s) done in this iteration: "<<counting<<endl;
-				counting=0;
+				//cout<<"Comparision(s) done in this iteration: "<<counting<<endl;
+				//counting=0;
+				print();
 			}
 		}
 		void print()
@@ -70,6 +71,7 @@ int main()
     ob.print();/* printing the array after adding values */
     cout<<"Sorting the array"<<endl;
     ob.sorting();
+	cout<<"After Sorting"<<endl;
     ob.print();/* Printing the array after sorting */
 	getch();
     return 0;
