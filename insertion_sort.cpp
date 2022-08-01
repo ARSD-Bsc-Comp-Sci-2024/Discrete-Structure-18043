@@ -27,7 +27,7 @@ class insertion_sort
 		}
 		void sorting()
 		{
-			int counting=0;
+			int counting=0,l=1;
 			for(int i=1;i<size;i++)
 			{
 				int current=arra[i];
@@ -39,8 +39,13 @@ class insertion_sort
 					j--;
 					counting++;
 				}
-				//cout<<"Comparision(s) done in this iteration: "<<counting<<endl;
-				//counting=0;
+				cout<<"After "<<l++<<" iteration"<<endl;
+				for(int k=0;k<size;k++)
+				{
+					cout<<arra[k]<<" ";
+				}
+				cout<<endl<<"Comparision(s) done in this iteration: "<<counting<<endl;
+				counting=0;
 				print();
 			}
 		}

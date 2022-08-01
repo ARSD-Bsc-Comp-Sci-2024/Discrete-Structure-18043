@@ -6,7 +6,7 @@ using namespace std;
 class sets
 {
     public:
-        bool ismember(char a, vector<char> &V)                 /*To check if the entered number is a member of the set*/
+        static bool ismember(char a, vector<char> &V)                 /*To check if the entered number is a member of the set*/
         {
             for(int i=0;i<V.size();i++)
             {
@@ -18,7 +18,7 @@ class sets
             }
             return false;
         }
-        vector<vector<char>> powerset(vector<char> &V)      /*To get the powerset of the user entered set*/                 
+        static vector<vector<char>> powerset(vector<char> &V)      /*To get the powerset of the user entered set*/                 
         {
             {
                 vector<vector<char>> Output;
@@ -42,22 +42,36 @@ class sets
 
             }
         }
+        static void cardinality(vector<char>a)
+        {
+            vector<char>b;int k=0;
+            for(int i=0;i<a.size();i++)
+            {
+                for(int j=0;j<b.size();j++)
+                {
+                    if(a[i]!=b[j]){k+=1;}
+                }
+                if(k==b.size()){b.push_back(a[i]);}
+                k=0;
+            }
+            cout<<"Number of distinct element in the set: "<<b.size()<<endl;
+            return;
+        }
         
 };
 int main()
 {
-    char n;
+    char n,p;
     int size;
-    sets SETS;
     vector<char> A;
     cout<<"Enter the number of elemets you want to enter the the set: ";cin>>size;//entering the size of set
     for (int x = 0; x < size; x++)
     {
-        cout<<"Enter the element "<<(x+1)<<": ";cin>>A[x];//entering the elements of the set as characters.
+        cout<<"Enter the element "<<(x+1)<<": ";cin>>p;A.push_back(p);//entering the elements of the set as characters.
     }
     cout<<"enter the number you want to search: ";
     cin>>n;
-    if(SETS.ismember(n,A))//checking for member.
+    if(sets::ismember(n,A))//checking for member.
     {
         cout<<n<<" is a member of the Set"<<endl;
     }
@@ -65,7 +79,7 @@ int main()
         cout<<n<<" is not a member of the set"<<endl;
     }
     vector<vector<char>> powersets;
-    powersets=SETS.powerset(A);//returning the powerset as a 2d vector.
+    powersets=sets::powerset(A);//returning the powerset as a 2d vector.
     cout<<"{";
     for (int i = 0; i < powersets.size(); i++)
     {
@@ -78,7 +92,9 @@ int main()
         cout<<"],";
     }
     cout<<"}"<<endl;
-    
+    cout<<endl;
+    sets::cardinality(A);
+    cout<<endl;
     getch();
 
 

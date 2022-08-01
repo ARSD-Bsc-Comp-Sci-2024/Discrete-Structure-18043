@@ -69,7 +69,7 @@ class completegraph
 int main()
 {
     int v,e;
-    cout<<"Enter the number of matrices: ";
+    cout<<"Enter the number of vertices: ";
     cin>>v;
     cout<<"Enter the number of edges: ";
     cin>>e;

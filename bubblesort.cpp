@@ -27,7 +27,7 @@ class bubble_sort
 		}
 		void sorting()
 		{
-			int counting=0;
+			int counting=0,itrt=1;
 			int counter=1;
 			while(counter<size)
 			{
@@ -41,7 +41,13 @@ class bubble_sort
 						counting++;
 					}
 				}
-				cout<<"Comparision(s) done in this: "<<counting<<endl;
+				cout<<"After "<<itrt++<<" iteration"<<endl;
+				for (int i = 0; i < size; i++)
+				{
+					cout<<arra[i]<<" ";
+				}
+				
+				cout<<endl<<"Comparision(s) done in this: "<<counting<<endl;
 				counting=0;
 				counter++;
 			}

@@ -352,50 +352,25 @@ int main()
 {
     Set_operations stop;
     cout<<"1. Union of the sets\n2. Intersection of the sets\n3. Complement of the sets\n4. Print the set difference and Symmetric difference\n5. Check if subset or equal\n6.Print the Cartesian Product."<<endl;
-    int choice;
-    cout<<"Enter your choice: ";cin>>choice;
-    switch (choice)
+    vector<int>unin=stop.UNION();
+    cout<<"UNION: ";
+    for (int i = 0; i < unin.size(); i++)
     {
-    case 1:{
-        vector<int>unin=stop.UNION();
-        cout<<"UNION: ";
-        for (int i = 0; i < unin.size(); i++)
-        {
-            cout<<unin[i]<<",";
-        }
-        }
-        break;
-    
-    case 2:{
-        vector<int>itrsct=stop.INTERSECTION();
-        cout<<"INTERSECTION: ";
-        for (int i = 0; i < itrsct.size(); i++)
-        {
-            cout<<itrsct[i]<<",";
-        }}
-        break;
-    case 3:{
-        stop.COMPLEMENT();
-        }
-        break;
-    case 4:
-        {
-            stop.set_difference_and_symmetric_differnce();
-        }
-        break;
-    case 5:
-        {
-            stop.subset();
-        }
-        break;
-    case 6:
-        {
-            stop.CARTESIAN_PRODUCT();
-        }
-        break;
-    default:
-        break;
+        cout<<unin[i]<<",";
     }
+    cout<<endl;
+    vector<int>itrsct=stop.INTERSECTION();
+    cout<<"INTERSECTION: ";
+    for (int i = 0; i < itrsct.size(); i++)
+    {
+        cout<<itrsct[i]<<",";
+    }
+    cout<<endl;
+    stop.COMPLEMENT();
+    cout<<endl;
+    stop.set_difference_and_symmetric_differnce();cout<<endl;
+    stop.subset();cout<<endl;
+    stop.CARTESIAN_PRODUCT();cout<<endl;
     getch();
     return 0;
 }

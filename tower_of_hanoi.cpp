@@ -15,6 +15,7 @@ void TowerOfHanoi(int start, int end,string starting,string temporary,string des
 
 int main()
 {
-    TowerOfHanoi(1,4,"Rod_1","Rod_2","Rod_3");
+    cout<<"Transfering 3 disks from Rod_1 to Rod_3"<<endl;
+    TowerOfHanoi(1,3,"Rod_1","Rod_2","Rod_3");
     return 0;
 }

@@ -7,6 +7,8 @@ class RELATION
         int **arr;
         int size;
     public:
+        static int equivalence;
+        static int partial_order_relation;
         RELATION()
         {
             cout<<"Enter the length of the set: ";cin>>size;
@@ -33,11 +35,13 @@ class RELATION
             {
                 if(arr[i][i]!=1)
                 {
-                    cout<<"Relation is not reflexive."<<endl;
+                    // cout<<"Relation is not reflexive."<<endl;
                     return;
                 }
             }
-            cout<<"Relation is reflexive."<<endl;
+            partial_order_relation++;
+            equivalence++;
+            // cout<<"Relation is reflexive."<<endl;
             return;
         }
         void Symmetric()
@@ -48,12 +52,13 @@ class RELATION
                 {
                     if((arr[i][j]==1 && arr[j][i]!=1)||(arr[i][j]!=1 && arr[j][i]==1) )
                     {
-                        cout<<"Relation is not symmetric."<<endl;
+                        // cout<<"Relation is not symmetric."<<endl;
                         return;
                     }
                 }
             }
-            cout<<"Relation is symmetric."<<endl;
+            equivalence++;
+            // cout<<"Relation is symmetric."<<endl;
             return;
         }
         void AntiSymmetric()
@@ -66,18 +71,18 @@ class RELATION
                     {
                         if(i!=j)
                         {
-                            cout<<"Relation is not antisymmetric."<<endl;
+                            // cout<<"Relation is not antisymmetric."<<endl;
                             return;
                         }
                     }
                 }
             }
-            cout<<"Relation is AntiSymmetric"<<endl;
+            partial_order_relation++;
+            // cout<<"Relation is AntiSymmetric"<<endl;
             return;
         }
         void Transitive()
         {
-            printing();
             bool flag=true;
             for(int i=0;i<size;i++)
             {
@@ -105,14 +110,16 @@ class RELATION
             }
             if(flag)
             {
-                cout<<"Is Transitive"<<endl;
+                equivalence++;
+                partial_order_relation++;
+                // cout<<"Is Transitive"<<endl;
                 return;
             }
-            cout<<"Is not transitive"<<endl;
+            // cout<<"Is not transitive"<<endl;
             return;
 
         }
-        void printing(){
+        /* void printing(){
             for (int i = 0; i < size; i++)
             {
                 for(int j = 0; j<size;j++)
@@ -121,9 +128,11 @@ class RELATION
                 }
                 cout<<endl;
             }
-            
-        }
+             
+        }*/
 };
+int RELATION::equivalence=0;
+int RELATION::partial_order_relation=0;
 int main()
 {
     RELATION r;
@@ -136,14 +145,21 @@ int main()
         cin>>x>>y;
         r.enter_data(x-1,y-1);
     }
-    cout<<endl<<"Checking if REFLEXIVE or not......"<<endl;
     r.reflexive();
-    cout<<"Checking if the relation is SYMMETRIC or not....."<<endl;
-    r.Symmetric();
-    cout<<endl<<"Checking if the relation is ANTISYMMETRIC or not....."<<endl;
     r.AntiSymmetric();
-    cout<<"checking if the relations is TRANSITIVE or not......"<<endl;
+    r.Symmetric();
     r.Transitive();
+    if(RELATION::equivalence==3)
+    {
+        cout<<"The relation is Equivalence"<<endl;
+    }
+    else if(RELATION::partial_order_relation==3)
+    {
+        cout<<"The relation is Partial Order Relation"<<endl;
+    }
+    else{
+        cout<<"Relation is nor Equivalence neither Partial Order Relation"<<endl;
+    }
 
     getch();
     return 0;
